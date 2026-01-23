@@ -36,12 +36,18 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # React / Vite
-react-tutorial/dist/
-react-tutorial/.vite/
-react-tutorial/.env
-react-tutorial/.env.local
-react-tutorial/.env.production.local
-react-tutorial/.env.development.local
+dist/
+dist-ssr/
+.vite/
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# Logs
+logs/
+*.log
+lerna-debug.log*
 
 # IDE
 .vscode/
@@ -51,10 +57,6 @@ react-tutorial/.env.development.local
 *~
 .DS_Store
 
-# Logs
-*.log
-logs/
-
 # OS
 Thumbs.db
 .DS_Store
@@ -62,3 +64,7 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Старая папка react-tutorial (можно удалить вручную)
+react-tutorial/node_modules/
+react-tutorial/dist/
