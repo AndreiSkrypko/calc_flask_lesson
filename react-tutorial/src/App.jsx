@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Introduction from './components/Introduction'
 import Step1 from './components/Step1'
 import Step2 from './components/Step2'
 import Step3 from './components/Step3'
@@ -12,10 +13,11 @@ import Step9 from './components/Step9'
 import Step10 from './components/Step10'
 
 function App() {
-  const [currentStep, setCurrentStep] = useState(1)
-  const totalSteps = 10
+  const [currentStep, setCurrentStep] = useState(0)
+  const totalSteps = 11
 
   const steps = [
+    { component: Introduction, title: 'Введение: Что такое Flask?' },
     { component: Step1, title: 'Подготовка проекта' },
     { component: Step2, title: 'Создание виртуального окружения' },
     { component: Step3, title: 'Установка Flask' },
@@ -28,16 +30,16 @@ function App() {
     { component: Step10, title: 'Проверка работы' },
   ]
 
-  const CurrentStepComponent = steps[currentStep - 1].component
+  const CurrentStepComponent = steps[currentStep].component
 
   const nextStep = () => {
-    if (currentStep < totalSteps) {
+    if (currentStep < totalSteps - 1) {
       setCurrentStep(currentStep + 1)
     }
   }
 
   const prevStep = () => {
-    if (currentStep > 1) {
+    if (currentStep > 0) {
       setCurrentStep(currentStep - 1)
     }
   }
@@ -52,12 +54,16 @@ function App() {
       <div className="progress-bar">
         <div 
           className="progress-fill" 
-          style={{ width: `${(currentStep / totalSteps) * 100}%` }}
+          style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
         ></div>
       </div>
 
       <div className="step-indicator">
-        Шаг {currentStep} из {totalSteps}: {steps[currentStep - 1].title}
+        {currentStep === 0 ? (
+          <span>{steps[currentStep].title}</span>
+        ) : (
+          <span>Шаг {currentStep} из {totalSteps - 1}: {steps[currentStep].title}</span>
+        )}
       </div>
 
       <main className="main-content">
@@ -67,7 +73,7 @@ function App() {
       <div className="navigation">
         <button 
           onClick={prevStep} 
-          disabled={currentStep === 1}
+          disabled={currentStep === 0}
           className="nav-button prev"
         >
           ← Назад
@@ -76,14 +82,14 @@ function App() {
           {steps.map((_, index) => (
             <span
               key={index}
-              className={`dot ${index + 1 === currentStep ? 'active' : ''} ${index + 1 < currentStep ? 'completed' : ''}`}
-              onClick={() => setCurrentStep(index + 1)}
+              className={`dot ${index === currentStep ? 'active' : ''} ${index < currentStep ? 'completed' : ''}`}
+              onClick={() => setCurrentStep(index)}
             />
           ))}
         </div>
         <button 
           onClick={nextStep} 
-          disabled={currentStep === totalSteps}
+          disabled={currentStep === totalSteps - 1}
           className="nav-button next"
         >
           Вперед →
