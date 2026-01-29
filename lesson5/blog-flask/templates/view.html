@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<article class="post">
+    <h1>{{ post.title }}</h1>
+    <p class="date">{{ post.created_at[:19] if post.created_at else '' }}</p>
+    <div class="body">{{ post.body }}</div>
+    <p class="actions">
+        <a href="{{ url_for('edit_post', post_id=post.id) }}">Редактировать</a>
+        <form action="{{ url_for('delete_post', post_id=post.id) }}" method="post" class="inline">
+            <button type="submit" onclick="return confirm('Удалить пост?');">Удалить</button>
+        </form>
+    </p>
+</article>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ 'Редактировать' if post and post.id else 'Новый пост' }}{% endblock %}
+
+{% block content %}
+<h1>{{ 'Редактировать пост' if post and post.id else 'Новый пост' }}</h1>
+
+<form method="post" action="{{ url_for('edit_post', post_id=post.id) if post and post.id else url_for('new_post') }}">
+    <p>
+        <label>Заголовок <input type="text" name="title" value="{{ post.title if post else '' }}" maxlength="200" required></label>
+    </p>
+    <p>
+        <label>Текст <textarea name="body" rows="8" maxlength="5000" required>{{ post.body if post else '' }}</textarea></label>
+    </p>
+    <p>
+        <button type="submit">Сохранить</button>
+        {% if post and post.id %}
+        <a href="{{ url_for('view_post', post_id=post.id) }}">Отмена</a>
+        {% else %}
+        <a href="{{ url_for('index') }}">Отмена</a>
+        {% endif %}
+    </p>
+</form>
+{% endblock %}

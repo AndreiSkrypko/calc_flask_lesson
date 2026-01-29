@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Сайт-визитка{% endblock %} — Урок 4</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="nav">
+        <a href="{{ url_for('index') }}">Главная</a>
+        <a href="{{ url_for('about') }}">Обо мне</a>
+        <a href="{{ url_for('contact') }}">Контакты</a>
+    </nav>
+
+    <main class="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        Урок 4: несколько страниц, наследование шаблонов
+    </footer>
+</body>
+</html>

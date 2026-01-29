@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор на Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Калькулятор на Flask</h1>
+
+        <div class="calculator">
+            <div class="input-group">
+                <label for="num1">Первое число:</label>
+                <input
+                    type="number"
+                    id="num1"
+                    name="num1"
+                    placeholder="Введите число"
+                    step="any"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="operation">Операция:</label>
+                <select id="operation" name="operation" required>
+                    <option value="+">Сложение (+)</option>
+                    <option value="-">Вычитание (-)</option>
+                    <option value="*">Умножение (*)</option>
+                    <option value="/">Деление (/)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="num2">Второе число:</label>
+                <input
+                    type="number"
+                    id="num2"
+                    name="num2"
+                    placeholder="Введите число"
+                    step="any"
+                    required
+                >
+            </div>
+
+            <button type="button" id="calculateBtn" class="calculate-btn">
+                Вычислить
+            </button>
+
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

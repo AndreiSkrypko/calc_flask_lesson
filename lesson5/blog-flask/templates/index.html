@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<h1>📝 Блог</h1>
+<p class="subtitle">Урок 5: CRUD, SQLite, формы, валидация</p>
+
+{% if not posts %}
+<p class="empty">Пока нет постов. <a href="{{ url_for('new_post') }}">Создать первый</a>.</p>
+{% else %}
+<ul class="post-list">
+    {% for p in posts %}
+    <li>
+        <a href="{{ url_for('view_post', post_id=p.id) }}">{{ p.title }}</a>
+        <span class="date">{{ p.created_at[:19] if p.created_at else '' }}</span>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

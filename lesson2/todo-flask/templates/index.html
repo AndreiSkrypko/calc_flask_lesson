@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список дел — Урок 2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Список дел</h1>
+        <p class="subtitle">Урок 2: несколько маршрутов, данные в памяти</p>
+
+        <div class="add-form">
+            <input type="text" id="newTodo" placeholder="Новое дело..." maxlength="200">
+            <button type="button" id="addBtn">Добавить</button>
+        </div>
+
+        <ul id="todoList" class="todo-list"></ul>
+        <p id="emptyMsg" class="empty-msg">Пока пусто. Добавьте первое дело!</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

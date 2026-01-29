@@ -28,9 +28,6 @@ ENV/
 instance/
 .webassets-cache
 
-# SQLite (уроки 3, 5)
-*.db
-
 # Node.js
 node_modules/
 npm-debug.log*

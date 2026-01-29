@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостевская книга — Урок 3</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Гостевская книга</h1>
+        <p class="subtitle">Урок 3: SQLite — сохранение в базу данных</p>
+
+        <form class="add-form" id="addForm">
+            <input type="text" id="author" placeholder="Ваше имя" maxlength="100" required>
+            <textarea id="message" placeholder="Ваше сообщение..." rows="3" maxlength="500" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+
+        <div id="entries" class="entries"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
