@@ -1,61 +1,48 @@
 import { useState } from 'react'
 import './App.css'
-import Introduction from './components/Introduction'
-import Step1 from './components/Step1'
-import Step2 from './components/Step2'
-import Step3 from './components/Step3'
-import Step4 from './components/Step4'
-import Step5 from './components/Step5'
-import Step6 from './components/Step6'
-import Step7 from './components/Step7'
-import Step8 from './components/Step8'
-import Step9 from './components/Step9'
-import Step10 from './components/Step10'
+import { lessons } from './lessonsConfig'
+import LessonSwitcher from './components/LessonSwitcher'
 
 function App() {
+  const [currentLesson, setCurrentLesson] = useState(0)
   const [currentStep, setCurrentStep] = useState(0)
-  const totalSteps = 11
 
-  const steps = [
-    { component: Introduction, title: 'Введение: Что такое Flask?' },
-    { component: Step1, title: 'Подготовка проекта' },
-    { component: Step2, title: 'Создание виртуального окружения' },
-    { component: Step3, title: 'Установка Flask' },
-    { component: Step4, title: 'Создание файла app.py' },
-    { component: Step5, title: 'Создание HTML шаблона' },
-    { component: Step6, title: 'Создание CSS стилей' },
-    { component: Step7, title: 'Создание JavaScript кода' },
-    { component: Step8, title: 'Создание requirements.txt' },
-    { component: Step9, title: 'Запуск проекта' },
-    { component: Step10, title: 'Проверка работы' },
-  ]
+  const lesson = lessons[currentLesson]
+  const steps = lesson.steps
+  const totalSteps = steps.length
+  const StepComponent = steps[currentStep].component
 
-  const CurrentStepComponent = steps[currentStep].component
+  const goToLesson = (index) => {
+    setCurrentLesson(index)
+    setCurrentStep(0)
+  }
 
   const nextStep = () => {
-    if (currentStep < totalSteps - 1) {
-      setCurrentStep(currentStep + 1)
-    }
+    if (currentStep < totalSteps - 1) setCurrentStep((s) => s + 1)
   }
 
   const prevStep = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1)
-    }
+    if (currentStep > 0) setCurrentStep((s) => s - 1)
   }
 
   return (
-    <div className="app">
+    <div className="app trainer-page">
       <header className="app-header">
-        <h1>🧮 Урок: Создание калькулятора на Flask</h1>
+        <h1>Урок {lesson.id}: {lesson.title}</h1>
         <p className="subtitle">Пошаговое руководство для начинающих</p>
       </header>
 
+      <LessonSwitcher
+        lessons={lessons}
+        currentLesson={currentLesson}
+        onSelect={goToLesson}
+      />
+
       <div className="progress-bar">
-        <div 
-          className="progress-fill" 
+        <div
+          className="progress-fill"
           style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
-        ></div>
+        />
       </div>
 
       <div className="step-indicator">
@@ -66,13 +53,19 @@ function App() {
         )}
       </div>
 
-      <main className="main-content">
-        <CurrentStepComponent />
+      <main
+        className="main-content trainer-card"
+        role="main"
+        data-trainer-lesson={lesson.id}
+        data-trainer-step={currentStep}
+        data-trainer-step-title={steps[currentStep].title}
+      >
+        <StepComponent />
       </main>
 
       <div className="navigation">
-        <button 
-          onClick={prevStep} 
+        <button
+          onClick={prevStep}
           disabled={currentStep === 0}
           className="nav-button prev"
         >
@@ -80,19 +73,21 @@ function App() {
         </button>
         <div className="step-dots">
           {steps.map((_, index) => (
-            <span
+            <button
               key={index}
+              type="button"
               className={`dot ${index === currentStep ? 'active' : ''} ${index < currentStep ? 'completed' : ''}`}
               onClick={() => setCurrentStep(index)}
+              aria-label={`Шаг ${index + 1}`}
             />
           ))}
         </div>
-        <button 
-          onClick={nextStep} 
+        <button
+          onClick={nextStep}
           disabled={currentStep === totalSteps - 1}
           className="nav-button next"
         >
-          Вперед →
+          Вперёд →
         </button>
       </div>
     </div>
