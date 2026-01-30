@@ -33,6 +33,26 @@ function L2Step4() {
         <strong>✅ Урок 2 пройден!</strong>
         <p>Примеры HTML/JS файлов находятся в <code>lesson2/todo-flask/templates/index.html</code> и <code>lesson2/todo-flask/static/script.js</code>. Сравнивай свой код с ними.</p>
       </div>
+      
+      <h3>Контрольный список — какие файлы должны быть</h3>
+      <p>Проверь, что в твоём проекте созданы следующие файлы и папки:</p>
+      <div className="code-block">
+        <code>{`project-folder/
+├─ app.py                # сервер на Flask
+├─ requirements.txt      # pip install -r requirements.txt (опционально)
+├─ templates/
+│  └─ index.html         # HTML-шаблон страницы
+└─ static/
+   ├─ script.js          # клиентский JavaScript (fetch, обработчики)
+   └─ style.css          # стили для страницы`}</code>
+      </div>
+
+      <p>Команды для проверки:</p>
+      <ul>
+        <li>Создай виртуальное окружение: <code>python -m venv venv</code> и активируй его.</li>
+        <li>Установи зависимости (если есть): <code>pip install -r requirements.txt</code>.</li>
+        <li>Запусти сервер: <code>python app.py</code> — открой <code>http://localhost:5001</code>.</li>
+      </ul>
     </div>
   )
 }
