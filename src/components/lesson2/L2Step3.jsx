@@ -1,28 +1,51 @@
 function L2Step3() {
   return (
     <div className="step-content trainer-step">
-      <h2>Шаг 3: Страница и JavaScript</h2>
+      <h2>Шаг 3: Страница и простой JavaScript</h2>
 
-      <h3>HTML</h3>
-      <ul>
-        <li>Поле ввода и кнопка «Добавить».</li>
-        <li>Список <code>&lt;ul&gt;</code> для дел. У каждого дела — текст, кнопки «Готово» и «Удалить».</li>
-      </ul>
+      <h3>1) HTML — сделай так</h3>
+      <div className="code-block">
+        <code>{`<!-- templates/index.html -->
+<input id="newText" placeholder="Что нужно сделать?" />
+<button id="addBtn">Добавить</button>
+<ul id="todosList"></ul>`}</code>
+      </div>
+      <p>Скопируй этот HTML — это поле ввода, кнопка и пустой список.</p>
 
-      <h3>JavaScript</h3>
-      <ul>
-        <li>При загрузке: <code>fetch('/api/todos')</code> → отрисуй список.</li>
-        <li>По «Добавить»: <code>fetch('/api/todos', &#123; method: 'POST', ... &#125;)</code> с <code>body: JSON.stringify(&#123; text &#125;)</code>.</li>
-        <li>По «Готово»: <code>fetch(`/api/todos/$&#123;id&#125;/toggle`, &#123; method: 'POST' &#125;)</code>, затем обнови список.</li>
-        <li>По «Удалить»: <code>fetch(`/api/todos/$&#123;id&#125;`, &#123; method: 'DELETE' &#125;)</code>, затем убери элемент из списка.</li>
-      </ul>
+      <h3>2) JavaScript — загрузи и покажи список</h3>
+      <div className="code-block">
+        <code>{`// static/app.js
+async function loadTodos() {
+  const res = await fetch('/api/todos')
+  const data = await res.json()
+  const ul = document.getElementById('todosList')
+  ul.innerHTML = ''
+  data.todos.forEach(t => {
+    const li = document.createElement('li')
+    li.textContent = t.text + (t.done ? ' ✅' : '')
+    ul.appendChild(li)
+  })
+}
+document.addEventListener('DOMContentLoaded', loadTodos)`}</code>
+      </div>
+      <p>Пояснение: fetch берёт список у сервера и рисует элементы в списке.</p>
+
+      <h3>3) Добавление задачи</h3>
+      <div className="code-block">
+        <code>{`document.getElementById('addBtn').addEventListener('click', async () => {
+  const text = document.getElementById('newText').value
+  await fetch('/api/todos', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ text }) })
+  loadTodos()
+})`}</code>
+      </div>
+      <p>Нажми кнопку — текст отправится на сервер, затем список обновится.</p>
 
       <div className="info-box">
-        <strong>Стили:</strong> можно оформить страницу как в уроке 1 (CSS в <code>static/style.css</code>).
+        <strong>Совет:</strong> сначала убедись, что кнопка «Добавить» работает, потом добавим «Готово» и «Удалить» рядом с каждой задачей.
       </div>
 
       <div className="success-box">
-        <strong>✅ Готово.</strong> Дальше — запуск и проверка.
+        <strong>✅ Готово.</strong> Если всё работает — переходи к следующему шагу.
       </div>
     </div>
   )

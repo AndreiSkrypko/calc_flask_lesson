@@ -1,37 +1,45 @@
 function L2Step1() {
   return (
     <div className="step-content trainer-step">
-      <h2>Шаг 1: Подготовка и маршруты</h2>
+      <h2>Шаг 1: Подготовка и первый маршрут</h2>
 
-      <h3>Что сделать</h3>
+      <h3>Что ты сделаешь</h3>
       <ol>
-        <li>Создай проект в PyCharm (как в уроке 1).</li>
-        <li>Создай виртуальное окружение, установи Flask.</li>
-        <li>Создай <code>app.py</code> и подключи Flask.</li>
+        <li>Создашь папку проекта и виртуальное окружение (venv).</li>
+        <li>Установишь Flask командой <code>pip install flask</code>.</li>
+        <li>Создадим файл <code>app.py</code> и запустим сервер.</li>
       </ol>
 
       <div className="info-box trainer-definition">
-        <strong>Маршруты для списка дел:</strong>
-        <ul>
-          <li><code>GET /</code> — главная страница (HTML)</li>
-          <li><code>GET /api/todos</code> — вернуть список дел (JSON)</li>
-            <li><code>POST /api/todos</code> — добавить дело (JSON: <code>&#123;"text": "..."&#125;</code>)</li>
-          <li><code>POST /api/todos/&lt;id&gt;/toggle</code> — переключить «готово»</li>
-          <li><code>DELETE /api/todos/&lt;id&gt;</code> — удалить дело</li>
-        </ul>
+        <strong>Зачем это нужно</strong>
+        <p>Сервер будет отдавать страницу и отвечать на запросы от браузера — без него страница не сможет общаться с кодом на Python.</p>
       </div>
 
-      <p>Пока можно вернуть пустой список:</p>
+      <h3>Скопируй в <code>app.py</code> (минимум)</h3>
       <div className="code-block">
-        <code>{`todos = []
+        <code>{`from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+todos = []  # пока пустой список
 
 @app.route('/api/todos')
 def get_todos():
-    return jsonify({'todos': todos})`}</code>
+    return jsonify({'todos': todos})
+
+if __name__ == '__main__':
+    app.run(port=5001, debug=True)`}</code>
       </div>
 
+      <p>Пояснение для тебя:</p>
+      <ul>
+        <li><code>Flask</code> — библиотека, которая запускает веб‑сервер.</li>
+        <li><code>todos = []</code> — сюда будут добавляться твои задачи.</li>
+        <li>Маршрут <code>/api/todos</code> возвращает список задач в формате JSON.</li>
+      </ul>
+
       <div className="success-box">
-        <strong>✅ Готово.</strong> Дальше — реализуем добавление, toggle и удаление.
+        <strong>✅ Проверь сам:</strong> запусти <code>python app.py</code> и открой <code>http://localhost:5001/api/todos</code> — должен быть пустой список.
       </div>
     </div>
   )

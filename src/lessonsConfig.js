@@ -14,6 +14,13 @@ import L2Step1 from './components/lesson2/L2Step1'
 import L2Step2 from './components/lesson2/L2Step2'
 import L2Step3 from './components/lesson2/L2Step3'
 import L2Step4 from './components/lesson2/L2Step4'
+import L2Step5 from './components/lesson2/L2Step5'
+import L2Step6 from './components/lesson2/L2Step6'
+import L2Step7 from './components/lesson2/L2Step7'
+import L2Step8 from './components/lesson2/L2Step8'
+import L2Step9 from './components/lesson2/L2Step9'
+import L2Step10 from './components/lesson2/L2Step10'
+import L2Step11 from './components/lesson2/L2Step11'
 import L3Intro from './components/lesson3/L3Intro'
 import L3Step1 from './components/lesson3/L3Step1'
 import L3Step2 from './components/lesson3/L3Step2'
@@ -54,9 +61,16 @@ export const lessons = [
     shortTitle: 'Список дел',
     steps: [
       { title: 'Введение', component: L2Intro },
-      { title: 'Подготовка и маршруты', component: L2Step1 },
-      { title: 'Данные и API', component: L2Step2 },
-      { title: 'Страница и JavaScript', component: L2Step3 },
+      { title: 'Подготовка и первый маршрут', component: L2Step1 },
+      { title: 'Данные и API (структура)', component: L2Step2 },
+      { title: 'Страница: базовый HTML', component: L2Step3 },
+      { title: 'Реализация POST (добавление)', component: L2Step5 },
+      { title: 'Реализация toggle (готово)', component: L2Step6 },
+      { title: 'Реализация DELETE (удаление)', component: L2Step7 },
+      { title: 'Шаблоны и static (HTML, CSS, JS)', component: L2Step8 },
+      { title: 'Готовые файлы — код для копирования', component: L2Step11 },
+      { title: 'JavaScript: POST/DELETE/toggle подробно', component: L2Step9 },
+      { title: 'Валидация, коды ответов и улучшения', component: L2Step10 },
       { title: 'Запуск и проверка', component: L2Step4 },
     ],
   },
