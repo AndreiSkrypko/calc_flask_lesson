@@ -55,7 +55,7 @@ function L2Step4() {
           <li><strong>Ты нажимаешь кнопку "Добавить"</strong> на странице</li>
           <li><strong>JavaScript "ловит" это нажатие</strong> — функция <code>addEventListener</code> говорит: "Ага, кнопку нажали!"</li>
           <li><strong>JavaScript берёт текст</strong> из поля ввода (например, "Купить молоко")</li>
-          <li><strong>JavaScript отправляет запрос</strong> на сервер через <code>fetch('/api/todos', {method: 'POST', ...})</code></li>
+          <li><strong>JavaScript отправляет запрос</strong> на сервер через <code>fetch('/api/todos', ...)</code> с методом POST</li>
           <li><strong>Сервер получает запрос</strong> — Flask видит, что пришёл POST запрос на адрес <code>/api/todos</code></li>
           <li><strong>Сервер вызывает функцию</strong> <code>add_todo()</code> — она создаёт новое дело и добавляет его в список <code>todos</code></li>
           <li><strong>Сервер отправляет ответ</strong> обратно: "Всё хорошо, дело добавлено!"</li>
