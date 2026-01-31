@@ -27,16 +27,16 @@ function App() {
 
   return (
     <div className="app trainer-page">
-      <header className="app-header">
-        <h1>Урок {lesson.id}: {lesson.title}</h1>
-        <p className="subtitle">Пошаговое руководство для начинающих</p>
-      </header>
-
       <LessonSwitcher
         lessons={lessons}
         currentLesson={currentLesson}
         onSelect={goToLesson}
       />
+      
+      <header className="app-header">
+        <h1>Урок {lesson.id}: {lesson.title}</h1>
+        <p className="subtitle">Пошаговое руководство для начинающих</p>
+      </header>
 
       <div className="progress-bar">
         <div

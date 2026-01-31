@@ -74,39 +74,40 @@ export const lessons = [
       { title: 'Запуск и проверка', component: L2Step4 },
     ],
   },
-  {
-    id: 3,
-    title: 'Гостевская книга + SQLite',
-    shortTitle: 'Гостевская книга',
-    steps: [
-      { title: 'Введение', component: L3Intro },
-      { title: 'SQLite и таблица', component: L3Step1 },
-      { title: 'Маршруты и API', component: L3Step2 },
-      { title: 'Форма и вывод записей', component: L3Step3 },
-      { title: 'Запуск и проверка', component: L3Step4 },
-    ],
-  },
-  {
-    id: 4,
-    title: 'Сайт-визитка',
-    shortTitle: 'Визитка',
-    steps: [
-      { title: 'Введение', component: L4Intro },
-      { title: 'Базовый шаблон', component: L4Step1 },
-      { title: 'Страницы и маршруты', component: L4Step2 },
-      { title: 'Стили и навигация', component: L4Step3 },
-    ],
-  },
-  {
-    id: 5,
-    title: 'Простой блог',
-    shortTitle: 'Блог',
-    steps: [
-      { title: 'Введение', component: L5Intro },
-      { title: 'БД и CRUD', component: L5Step1 },
-      { title: 'Формы и валидация', component: L5Step2 },
-      { title: 'Шаблоны и flash', component: L5Step3 },
-      { title: 'Запуск и проверка', component: L5Step4 },
-    ],
-  },
+  // Уроки 3, 4, 5 временно скрыты
+  // {
+  //   id: 3,
+  //   title: 'Гостевская книга + SQLite',
+  //   shortTitle: 'Гостевская книга',
+  //   steps: [
+  //     { title: 'Введение', component: L3Intro },
+  //     { title: 'SQLite и таблица', component: L3Step1 },
+  //     { title: 'Маршруты и API', component: L3Step2 },
+  //     { title: 'Форма и вывод записей', component: L3Step3 },
+  //     { title: 'Запуск и проверка', component: L3Step4 },
+  //   ],
+  // },
+  // {
+  //   id: 4,
+  //   title: 'Сайт-визитка',
+  //   shortTitle: 'Визитка',
+  //   steps: [
+  //     { title: 'Введение', component: L4Intro },
+  //     { title: 'Базовый шаблон', component: L4Step1 },
+  //     { title: 'Страницы и маршруты', component: L4Step2 },
+  //     { title: 'Стили и навигация', component: L4Step3 },
+  //   ],
+  // },
+  // {
+  //   id: 5,
+  //   title: 'Простой блог',
+  //   shortTitle: 'Блог',
+  //   steps: [
+  //     { title: 'Введение', component: L5Intro },
+  //     { title: 'БД и CRUD', component: L5Step1 },
+  //     { title: 'Формы и валидация', component: L5Step2 },
+  //     { title: 'Шаблоны и flash', component: L5Step3 },
+  //     { title: 'Запуск и проверка', component: L5Step4 },
+  //   ],
+  // },
 ]
