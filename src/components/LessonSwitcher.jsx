@@ -3,8 +3,13 @@ function LessonSwitcher({ lessons, currentLesson, onSelect }) {
     <nav className="navbar trainer-nav" role="navigation" aria-label="Выбор урока">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <span className="brand-icon">📚</span>
-          <span className="brand-text">Flask Уроки</span>
+          <div className="brand-icon-wrapper">
+            <span className="brand-icon">⚡</span>
+          </div>
+          <div className="brand-text-wrapper">
+            <span className="brand-text-main">Flask</span>
+            <span className="brand-text-sub">Уроки</span>
+          </div>
         </div>
         <div className="navbar-menu">
           {lessons.map((lesson, index) => (

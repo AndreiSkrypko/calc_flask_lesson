@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import { lessons } from './lessonsConfig'
 import LessonSwitcher from './components/LessonSwitcher'
@@ -11,6 +11,11 @@ function App() {
   const steps = lesson.steps
   const totalSteps = steps.length
   const StepComponent = steps[currentStep].component
+
+  // Прокрутка в начало страницы при изменении урока или шага
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [currentLesson, currentStep])
 
   const goToLesson = (index) => {
     setCurrentLesson(index)
