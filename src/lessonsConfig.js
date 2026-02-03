@@ -26,6 +26,12 @@ import L3Step1 from './components/lesson3/L3Step1'
 import L3Step2 from './components/lesson3/L3Step2'
 import L3Step3 from './components/lesson3/L3Step3'
 import L3Step4 from './components/lesson3/L3Step4'
+import L3Step5 from './components/lesson3/L3Step5'
+import L3Step6 from './components/lesson3/L3Step6'
+import L3Step7 from './components/lesson3/L3Step7'
+import L3Step8 from './components/lesson3/L3Step8'
+import L3Step9 from './components/lesson3/L3Step9'
+import L3Step10 from './components/lesson3/L3Step10'
 import L4Intro from './components/lesson4/L4Intro'
 import L4Step1 from './components/lesson4/L4Step1'
 import L4Step2 from './components/lesson4/L4Step2'
@@ -74,19 +80,25 @@ export const lessons = [
       { title: 'Запуск и проверка', component: L2Step4 },
     ],
   },
-  // Уроки 3, 4, 5 временно скрыты
-  // {
-  //   id: 3,
-  //   title: 'Гостевская книга + SQLite',
-  //   shortTitle: 'Гостевская книга',
-  //   steps: [
-  //     { title: 'Введение', component: L3Intro },
-  //     { title: 'SQLite и таблица', component: L3Step1 },
-  //     { title: 'Маршруты и API', component: L3Step2 },
-  //     { title: 'Форма и вывод записей', component: L3Step3 },
-  //     { title: 'Запуск и проверка', component: L3Step4 },
-  //   ],
-  // },
+  {
+    id: 3,
+    title: 'Гостевская книга + SQLite',
+    shortTitle: 'Гостевская книга',
+    steps: [
+      { title: 'Введение', component: L3Intro },
+      { title: 'Подготовка проекта и знакомство с SQLite', component: L3Step1 },
+      { title: 'Создание таблицы и функции работы с БД', component: L3Step2 },
+      { title: 'Маршрут GET /api/entries — получение записей', component: L3Step3 },
+      { title: 'Маршрут POST /api/entries — добавление записи', component: L3Step4 },
+      { title: 'HTML шаблон — форма и контейнер', component: L3Step5 },
+      { title: 'JavaScript — загрузка и отображение записей', component: L3Step6 },
+      { title: 'JavaScript — отправка формы и добавление записи', component: L3Step7 },
+      { title: 'CSS стили — делаем страницу красивой', component: L3Step8 },
+      { title: 'Готовые файлы — код для копирования', component: L3Step9 },
+      { title: 'Запуск и проверка', component: L3Step10 },
+    ],
+  },
+  // Уроки 4, 5 временно скрыты
   // {
   //   id: 4,
   //   title: 'Сайт-визитка',

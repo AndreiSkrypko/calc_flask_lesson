@@ -4,7 +4,7 @@ import { lessons } from './lessonsConfig'
 import LessonSwitcher from './components/LessonSwitcher'
 
 function App() {
-  const [currentLesson, setCurrentLesson] = useState(0)
+  const [currentLesson, setCurrentLesson] = useState(2)
   const [currentStep, setCurrentStep] = useState(0)
 
   const lesson = lessons[currentLesson]
