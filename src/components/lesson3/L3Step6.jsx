@@ -40,11 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderEntry(e) {
         const div = document.createElement('div');
         div.className = 'entry';
-        div.innerHTML = \`
-            <div class="author">\${escapeHtml(e.author)}</div>
-            <div class="message">\${escapeHtml(e.message)}</div>
-            <div class="time">\${formatTime(e.created_at)}</div>
-        \`;
+        div.innerHTML = 
+            '<div class="author">' + escapeHtml(e.author) + '</div>' +
+            '<div class="message">' + escapeHtml(e.message) + '</div>' +
+            '<div class="time">' + formatTime(e.created_at) + '</div>';
         return div;
     }
 
@@ -94,10 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <ul>
             <li><code>document.createElement('div')</code> — создаём новый элемент <code>div</code></li>
             <li><code>div.className = 'entry'</code> — добавляем класс для стилизации</li>
-            <li><code>div.innerHTML = ...</code> — заполняем HTML содержимым. Используем шаблонные строки (обратные кавычки) для удобства</li>
-            <li><code>\${escapeHtml(e.author)}</code> — вставляем имя автора (экранированное)</li>
-            <li><code>\${escapeHtml(e.message)}</code> — вставляем сообщение (экранированное)</li>
-            <li><code>\${formatTime(e.created_at)}</code> — вставляем отформатированную дату</li>
+            <li><code>div.innerHTML = ...</code> — заполняем HTML содержимым. Используем конкатенацию строк для безопасности</li>
+            <li><code>escapeHtml(e.author)</code> — вызываем функцию для экранирования имени автора</li>
+            <li><code>escapeHtml(e.message)</code> — вызываем функцию для экранирования сообщения</li>
+            <li><code>formatTime(e.created_at)</code> — вызываем функцию для форматирования даты</li>
             <li><code>return div</code> — возвращаем готовый элемент</li>
           </ul>
         </li>
